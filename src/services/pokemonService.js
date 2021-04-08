@@ -7,11 +7,16 @@ class PokemonService {
 
     await Promise.all(
       response.data.results.map(async (pokemon) => {
-        let pokeId = pokemon.url.slice(34);
+        let pokeId = pokemon.url.slice(34).replace('/', '');
+        let imageHd = `https://pokeres.bastionbot.org/images/pokemon/${pokeId}.png`;
 
         const pokeRes = await api.get(`${pokeId}`);
 
-        array.push({ ...pokeRes.data, url: pokemon.url });
+        array.push({
+          ...pokeRes.data,
+          url: pokemon.url,
+          imageHdUrl: imageHd,
+        });
       })
     );
 
