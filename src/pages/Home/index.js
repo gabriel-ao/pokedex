@@ -4,9 +4,15 @@ import { PokemonService } from '../../services/pokemonService';
 
 import { pokeBackground, pokeColor } from '../../utils/enum/index';
 
+// import img6for3 from '../../assets/6x3.svg';
+import img6for3 from '../../assets/Pattern.svg';
+import img10for5 from '../../assets/10x5.svg';
+import pokeball from '../../assets/Pokeball.svg';
+import circle from '../../assets/Circle.svg';
+
 function Home() {
   const [pokemons, setPokemons] = useState([]);
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(150);
   const [count, setCount] = useState(30);
 
   function cardPokemon(pokemon) {
@@ -32,6 +38,21 @@ function Home() {
             backgroundColor: [pokeBackground(pokemon.types[0].type.name)],
           }}
         >
+          <div>
+            <img
+              style={{
+                position: 'absolute',
+                top: 6,
+                right: 170,
+              }}
+              width={90}
+              height={40}
+              src={img6for3}
+              ult='img6for3'
+              alt='img6for3'
+            />
+          </div>
+
           <div style={{ margin: 0, marginLeft: 20 }}>
             {/* NUMERO */}
             <h2
@@ -98,11 +119,20 @@ function Home() {
           </div>
 
           <div>
+            <img
+              style={{ position: 'absolute', top: 0, right: 0 }}
+              width={120}
+              height={120}
+              src={pokeball}
+              ult='logo'
+              alt='logo'
+            />
+
             <div>
               <img
-                style={{ position: 'absolute', top: -20, right: 20 }}
-                width={120}
-                height={120}
+                style={{ position: 'absolute', top: -18, right: 20 }}
+                width={110}
+                height={110}
                 src={pokemon.imageHdUrl}
                 ult='logo'
                 alt='logo'
@@ -125,7 +155,7 @@ function Home() {
 
   return (
     <>
-      <h1> pokedex</h1>
+      <h1> pokedex Gabriel</h1>
 
       <div
         style={
