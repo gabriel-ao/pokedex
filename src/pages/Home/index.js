@@ -12,7 +12,7 @@ import circle from '../../assets/Circle.svg';
 
 function Home() {
   const [pokemons, setPokemons] = useState([]);
-  const [pageNumber, setPageNumber] = useState(150);
+  const [pageNumber, setPageNumber] = useState(0);
   const [count, setCount] = useState(30);
 
   function cardPokemon(pokemon) {
@@ -23,16 +23,14 @@ function Home() {
         {/* CARD */}
         <div
           style={{
-            maxWidth: 350,
-            minWidth: 250,
-
+            width: 400,
             display: 'flex',
             position: 'relative',
 
             right: 0,
             padding: 5,
-            marginTop: 40,
-            margin: 12,
+
+            margin: '12px 12px 28px 12px',
             borderRadius: 14,
 
             backgroundColor: [pokeBackground(pokemon.types[0].type.name)],
@@ -155,20 +153,21 @@ function Home() {
 
   return (
     <>
-      <h1> pokedex Gabriel</h1>
-
-      <div
-        style={
-          {
-            // backgroundColor: 'red',
-            // maxWidth: 1200,
-            // display: 'flex',
-            // justifyContent: 'center',
-            // flexDirection: 'row',
-          }
-        }
-      >
-        {pokemons.map((pokemon) => cardPokemon(pokemon))}
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <h1> pokedex Gabriel</h1>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div
+          style={{
+            maxWidth: 1400,
+            minWidth: 260,
+            display: 'flex',
+            flexWrap: 'wrap',
+            flexDirection: 'row',
+          }}
+        >
+          {pokemons.map((pokemon) => cardPokemon(pokemon))}
+        </div>
       </div>
     </>
   );
