@@ -7,29 +7,32 @@ import { pokeBackground, pokeColor } from '../../utils/enum/index';
 function Home() {
   const [pokemons, setPokemons] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
-  const [count, setCount] = useState(300);
+  const [count, setCount] = useState(30);
 
   function cardPokemon(pokemon) {
     console.log('pokemon', pokemon);
 
     return (
       <>
+        {/* CARD */}
         <div
           style={{
             maxWidth: 350,
             minWidth: 250,
 
             display: 'flex',
-            justifyContent: 'space-around',
-            padding: 5,
+            position: 'relative',
 
+            right: 0,
+            padding: 5,
+            marginTop: 40,
             margin: 12,
             borderRadius: 14,
 
             backgroundColor: [pokeBackground(pokemon.types[0].type.name)],
           }}
         >
-          <div style={{ margin: 0 }}>
+          <div style={{ margin: 0, marginLeft: 20 }}>
             {/* NUMERO */}
             <h2
               style={{
@@ -50,9 +53,10 @@ function Home() {
               style={{
                 color: '#fff',
                 fontStyle: 'bold',
-                fontSize: 18,
+                fontSize: 28,
 
                 margin: 0,
+                marginBottom: 2,
               }}
               key={pokemon.name}
             >
@@ -96,7 +100,7 @@ function Home() {
           <div>
             <div>
               <img
-                // style={{ position: 'absolute' }}
+                style={{ position: 'absolute', top: -20, right: 20 }}
                 width={120}
                 height={120}
                 src={pokemon.imageHdUrl}
@@ -106,6 +110,7 @@ function Home() {
             </div>
           </div>
         </div>
+        {/* FIM CARD */}
       </>
     );
   }
